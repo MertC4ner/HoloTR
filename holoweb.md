@@ -115,11 +115,15 @@ Küçük ekranlarda logo ve sağdaki dil değiştirici yan yana hizalı kalırke
 
 B. 1000px Genişliğindeki Pervanenin Mobil Ölçeklenmesi
 
-Pervanenin (.hologram-fan) fiziksel boyutu 1000px olduğundan mobilde taşma yapmaması için piksel boyutuna dokunulmaz. Bunun yerine CSS transform: scale() mekanizması ile mobil og tablet ekranlarına göre orantılı şekilde küçültülür:
+Pervanenin (.hologram-fan) fiziksel boyutu 1000px olduğundan mobilde taşma yapmaması için piksel boyutuna dokunulmaz. Ölçekleme transform: scale() ile yapılır ancak DOĞRUDAN .hologram-fan üzerinde değil, onu saran .hologram-fan-wrapper üzerinde uygulanır.
 
-768px ve altı ekranlar için: transform: scale(0.4) !important;
+Bunun nedeni: CSS animasyonu (spinFan) transform: rotate() kullanır. Eğer !important ile transform: scale() doğrudan .hologram-fan'a uygulanırsa, animasyonun rotate değerini geçersiz kılarak pervaneyi dondurur.
 
-480px og altı ekranlar için: transform: scale(0.3) !important;
+Doğru mimari: .hologram-bg-container > .hologram-fan-wrapper > .hologram-fan
+
+768px ve altı ekranlar için: .hologram-fan-wrapper { transform: scale(0.4); }
+
+480px ve altı ekranlar için: .hologram-fan-wrapper { transform: scale(0.3); }
 
 .hologram-bg-container üzerinde overflow: hidden; kullanılarak görünmeyen alanların taşması kesin olarak engellenir.
 

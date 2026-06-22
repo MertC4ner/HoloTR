@@ -24,6 +24,16 @@
     transition: transform 0.1s linear, opacity 0.1s linear;
 }
 
+/* Ölçekleme wrapper'ı — scale() burada uygulanır, fan animasyonu serbest kalır */
+.hologram-fan-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* transform-origin: center merkezi ölçekleme garantiler */
+    transform-origin: center center;
+    /* Masaüstünde ölçekleme yok, sadece mobil media query'de devreye girer */
+}
+
 /* Pervanenin Gövdesi (Orijinal geometri ve tam ekran yapısı korundu) */
 .hologram-fan {
     position: relative;

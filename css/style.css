@@ -1360,10 +1360,9 @@ body.light-theme .main-nav a.btn-cta {
     /* Hero başlığı mobilde küçülür */
     .hero-content h1 { font-size: 32px; }
 
-    /* Hologram pervane mobilde ölçeklenir - boyuta dokunulmaz, scale kullanılır */
-    .hologram-fan {
-        transform: scale(0.4) !important;
-        animation: spinFan 2.5s linear infinite !important;
+    /* Hologram pervane: ölçekleme wrapper'a taşındı, fan transform'u animasyona serbest */
+    .hologram-fan-wrapper {
+        transform: scale(0.4);
     }
 
     /* Tüm grid yapıları tek kolona düşer */
@@ -1414,9 +1413,9 @@ body.light-theme .main-nav a.btn-cta {
     .hero-content h1 { font-size: 26px; }
     .hero-content p { font-size: 15px; }
 
-    /* Daha küçük ekranlarda pervane daha da küçülür */
-    .hologram-fan {
-        transform: scale(0.3) !important;
+    /* Daha küçük ekranlarda wrapper daha da küçülür */
+    .hologram-fan-wrapper {
+        transform: scale(0.3);
     }
 
     .logo { font-size: 20px; }
