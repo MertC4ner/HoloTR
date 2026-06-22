@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teklif Al - Hologram Gösteri Hizmetleri</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="dark-theme">
+
+    <!-- Pervane yok, sadece arka plan sis efekti -->
+    <div class="hologram-bg-container">
+        <div class="cyber-fog fog-cyan"></div>
+        <div class="cyber-fog fog-magenta"></div>
+    </div>
+
+    <!-- Scroll ile aktif olan duman makineleri (kapsayıcıdan bağımsız) -->
+    <div class="fog-machine machine-left"></div>
+    <div class="fog-machine machine-right"></div>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="logo">
+                <a href="index.html">HOLO<span>TR</span></a>
+            </div>
+
+            <nav class="main-nav">
+                <div class="nav-wrapper">
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav-home">Ana Sayfa</a></li>
+                        <li><a href="projects.html" data-i18n="nav-projects">Projelerimiz</a></li>
+                        <li><a href="about.html" data-i18n="nav-about">Hakkımızda</a></li>
+                        <li><a href="contact.html" class="btn-cta active" data-i18n="nav-contact">Teklif Al</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="header-actions">
+                <div class="lang-switch">
+                    <button id="btn-tr" class="active">TR</button>
+                    <button id="btn-en">EN</button>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menüyü Aç/Kapat" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="contact-section">
+        <div class="section-title reveal">
+            <h2 data-i18n="form-title">Teklif Talep Formu</h2>
+            <p data-i18n="form-subtitle">Projeniz veya etkinliğiniz için fütüristik hologram çözümlerimize ait fiyat teklifi alın.</p>
+        </div>
+
+        <div class="form-container reveal delay-1">
+            <form id="proposalForm" action="https://formspree.io/f/xbdvjejz" method="POST">
+                <div class="form-group">
+                    <label for="customerName" data-i18n="lbl-name">Ad Soyadı / Şirket Unvanı</label>
+                    <input type="text" id="customerName" name="customerName" required placeholder="Örn: Ahmet Yılmaz / X Ajans" data-i18n-placeholder="placeholder-name">
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label for="email" data-i18n="lbl-email">E-posta Adresi</label>
+                        <input type="email" id="email" name="email" required placeholder="ahmet@sirket.com" data-i18n-placeholder="placeholder-email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" data-i18n="lbl-phone">Telefon Numarası</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="0532 XXX XX XX" data-i18n-placeholder="placeholder-phone">
+                    </div>
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label for="eventType" data-i18n="lbl-event-type">Etkinlik Türü</label>
+                        <select id="eventType" name="eventType" required>
+                            <option value="" disabled selected data-i18n="opt-select">Seçiniz...</option>
+                            <option value="fuar" data-i18n="filter-fuar">Fuar Standı</option>
+                            <option value="lansman" data-i18n="filter-lansman">Lansmanlar</option>
+                            <option value="festival" data-i18n="filter-festival">Konser / Festival</option>
+                            <option value="diger" data-i18n="opt-other">Diğer / Özel Etkinlik</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDate" data-i18n="lbl-date">Etkinlik Tarihi <span class="label-optional">(Opsiyonel)</span></label>
+                        <input type="date" id="eventDate" name="eventDate">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="hologramSize" data-i18n="lbl-hologram-size">İstenilen Görüntü Boyutu</label>
+                    <select id="hologramSize" name="hologramSize" required>
+                        <option value="" disabled selected data-i18n="opt-select">Seçiniz...</option>
+                        <option value="desktop" data-i18n="opt-size-desktop">Masaüstü / Ürün Boyutu (~50 cm)</option>
+                        <option value="human" data-i18n="opt-size-human">İnsan Boyu / Standart (~1.5 m - 2 m)</option>
+                        <option value="stage" data-i18n="opt-size-stage">Sahne / Dev Boyut (3 m ve üzeri)</option>
+                    </select>
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label for="eventLocation" data-i18n="lbl-event-location">Etkinlik Lokasyonu (Şehir)</label>
+                        <input type="text" id="eventLocation" name="eventLocation" placeholder="Örn: İstanbul, Ankara..." data-i18n-placeholder="placeholder-location">
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDuration" data-i18n="lbl-event-duration">Etkinlik Süresi</label>
+                        <select id="eventDuration" name="eventDuration" required>
+                            <option value="" disabled selected data-i18n="opt-select">Seçiniz...</option>
+                            <option value="1-day" data-i18n="opt-duration-1">1 Gün</option>
+                            <option value="2-4-days" data-i18n="opt-duration-2-4">2-4 Gün (Fuar Süresince)</option>
+                            <option value="weekly" data-i18n="opt-duration-weekly">1 Hafta ve Üzeri</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes" data-i18n="lbl-notes">Özel Notlar / Proje Detayları</label>
+                    <textarea id="notes" name="notes" rows="4" placeholder="Projeniz hakkında eklemek istediğiniz detaylar..." data-i18n-placeholder="placeholder-notes"></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit" id="btnSubmitForm" data-i18n="btn-send">Teklif Talebi Gönder</button>
+            </form>
+
+            <div id="formSuccessMessage" class="success-message" style="display: none;">
+                <h3 data-i18n="msg-success-title">Talebiniz Başarıyla Alındı!</h3>
+                <p data-i18n="msg-success-desc">Uzman ekibimiz en kısa sürede sizinle iletişime geçecektir.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-map-section reveal">
+        <div class="contact-meta-bar">
+            <div class="contact-meta-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Yeniköy Merkez, Vatan Cd. No:73E İç Kapı No:Z4, 41275 Başiskele/Kocaeli</span>
+            </div>
+            <div class="contact-meta-item">
+                <i class="fas fa-phone"></i>
+                <a href="tel:+905344113051">+90 534 411 30 51</a>
+            </div>
+            <div class="contact-meta-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:bilgi@holotr.com">bilgi@holotr.com</a>
+            </div>
+        </div>
+        <div class="contact-map-wrapper">
+            <iframe
+                src="https://maps.google.com/maps?q=Yenik%C3%B6y%20Merkez,%20Vatan%20Cd.%20No:73E,%20Ba%C5%9Fiskele,%20Kocaeli&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="350"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <div class="theme-toggle-container">
+        <button id="theme-toggle-btn" title="Temayı Değiştir">
+            <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-glow-bar"></div>
+        <div class="footer-main">
+            <div class="footer-brand">
+                <span class="footer-logo">HOLO<span>TR</span></span>
+                <p class="footer-tagline" data-i18n="footer-slogan">Boyutları aşan fütüristik görsel deneyimler. Etkinliğinizi geleceğin teknolojisiyle buluşturuyor, sahnenizde unutulmaz 3D illüzyonlar yaratıyoruz.</p>
+                <div class="footer-social-icons">
+                    <a href="https://www.instagram.com/holo.tr/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer-nav-title">Hızlı Bağlantılar</h4>
+                <ul>
+                    <li><a href="index.html" data-i18n="nav-home">Ana Sayfa</a></li>
+                    <li><a href="projects.html" data-i18n="nav-projects">Projelerimiz</a></li>
+                    <li><a href="about.html" data-i18n="nav-about">Hakkımızda</a></li>
+                    <li><a href="contact.html" data-i18n="nav-contact">Teklif Al</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer-services-title">Hizmetlerimiz</h4>
+                <ul>
+                    <li><a href="contact.html" data-i18n="footer-svc-1">Fuar Stand Kiralama</a></li>
+                    <li><a href="contact.html" data-i18n="footer-svc-2">Ürün Lansmanı</a></li>
+                    <li><a href="contact.html" data-i18n="footer-svc-3">Konser & Festival Şovları</a></li>
+                    <li><a href="contact.html" data-i18n="footer-svc-4">Kurumsal Etkinlikler</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer-contact-title">İletişim</h4>
+                <div class="footer-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p><a href="mailto:bilgi@holotr.com">bilgi@holotr.com</a></p>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p><a href="tel:+905344113051">+90 534 411 30 51</a></p>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p data-i18n="footer-address">Yeniköy Merkez, Vatan Cd. No:73E İç Kapı No:Z4, 41275 Başiskele/Kocaeli</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            <div class="footer-bottom-inner">
+                <p class="footer-copyright">&copy; 2026 HoloTR. <span data-i18n="footer-rights">Tüm Hakları Saklıdır.</span></p>
+                <div class="footer-legal-links">
+                    <a href="#" data-i18n="footer-privacy">Gizlilik Politikası</a>
+                    <a href="#" data-i18n="footer-terms">Kullanım Koşulları</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

@@ -1,0 +1,1425 @@
+/* ==========================================================================
+   1. DEĞİŞKENLER VE TEMA AYARLARI (GÜNCELLENMİŞ SÜRÜM)
+   ========================================================================== */
+:root {
+    --bg-color: #0a0a0f;
+    --text-color: #f0f0f5;
+    --accent-color: #00f3ff; 
+    --plasma-color: #ff0055; 
+    --header-bg: rgba(10, 10, 15, 0.85);
+    --footer-bg: #050508;
+    --card-bg: #12121a;
+    --nav-text-color: #f0f0f5;
+}
+
+body.light-theme {
+    --bg-color: #f4f6f9;
+    --text-color: #1a1a24;
+    --accent-color: #0055cc; 
+    --plasma-color: #e6004c; 
+    --header-bg: rgba(255, 255, 255, 0.95); 
+    --footer-bg: #e1e5ed;
+    --card-bg: #ffffff;
+    --nav-text-color: #1a1a24;
+}
+
+/* ==========================================================================
+   2. GENEL SIFIRLAMA VE TIPOGRAFİ
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Rajdhani', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==========================================================================
+   3. ÜST MENÜ (HEADER) - SİMETRİK KAPSÜL SÜRÜMÜ
+   ========================================================================== */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 25px 5%;
+    background: transparent; 
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text-color);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+.logo span {
+    color: var(--accent-color);
+    text-shadow: 0 0 15px var(--accent-color);
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+/* 💊 BUZLU CAM EFEKTLİ YUVARLATILMIŞ KAPSÜL */
+.nav-wrapper {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 6px 20px;
+    border-radius: 100px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.nav-wrapper ul {
+    display: flex;
+    list-style: none;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-wrapper ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-family: 'Rajdhani', sans-serif;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.nav-wrapper ul li a:hover,
+.nav-wrapper ul li a.active {
+    opacity: 1;
+    color: var(--accent-color) !important;
+    background: rgba(0, 243, 255, 0.06);
+}
+
+.nav-wrapper:hover {
+    border-color: rgba(0, 243, 255, 0.25);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.lang-switch {
+    display: flex;
+    gap: 5px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 4px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.lang-switch button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Rajdhani', sans-serif;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    opacity: 0.5;
+}
+
+.lang-switch button:hover { opacity: 0.9; }
+
+.lang-switch button.active {
+    background: linear-gradient(135deg, var(--accent-color), #00bfff);
+    color: #000;
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+}
+
+/* ==========================================================================
+   4. HERO / GİRİŞ ALANI
+   ========================================================================== */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-main {
+    display: inline-block;
+    padding: 15px 40px;
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--text-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+    transition: all 0.3s ease;
+}
+.btn-main:hover {
+    background-color: var(--accent-color);
+    color: #000;
+    box-shadow: 0 0 28px var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 15px 40px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--text-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary i {
+    font-size: 12px;
+    opacity: 0.7;
+    transition: transform 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.28);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary:hover i {
+    transform: translateX(3px);
+    opacity: 1;
+}
+
+/* ==========================================================================
+   5. TEMA DEĞİŞTİRME BUTONU (Sol Alt Sabit)
+   ========================================================================== */
+.theme-toggle-container {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 999;
+}
+
+#theme-toggle-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--card-bg);
+    border: 2px solid var(--accent-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+#theme-toggle-btn:hover {
+    box-shadow: 0 0 25px rgba(0, 243, 255, 0.45);
+}
+#theme-toggle-btn #theme-icon {
+    font-size: 18px;
+    color: var(--accent-color);
+    transition: transform 0.4s ease, color 0.3s ease;
+}
+#theme-toggle-btn:hover #theme-icon {
+    transform: rotate(25deg) scale(1.15);
+}
+body.light-theme #theme-toggle-btn #theme-icon {
+    color: #e6a800;
+}
+
+/* ==========================================================================
+   MOBİL HAMBURGER MENÜ BUTONU
+   ========================================================================== */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 38px;
+    height: 38px;
+    background: rgba(0, 243, 255, 0.05);
+    border: 1px solid rgba(0, 243, 255, 0.25);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 7px 6px;
+    transition: background 0.3s, border-color 0.3s;
+}
+.mobile-menu-toggle:hover {
+    background: rgba(0, 243, 255, 0.12);
+    border-color: rgba(0, 243, 255, 0.5);
+}
+.hamburger-line {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--accent-color);
+    border-radius: 2px;
+    box-shadow: 0 0 6px var(--accent-color);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    transform-origin: center;
+}
+.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+body.light-theme .mobile-menu-toggle {
+    border-color: rgba(0, 85, 204, 0.3);
+    background: rgba(0, 85, 204, 0.05);
+}
+body.light-theme .hamburger-line {
+    background: var(--accent-color);
+    box-shadow: none;
+}
+
+/* ==========================================================================
+   6. ALT BİLGİ (FOOTER) - PROFESYONEL SÜRÜM
+   ========================================================================== */
+.site-footer {
+    background-color: var(--footer-bg);
+    border-top: 1px solid rgba(0, 243, 255, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-glow-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--accent-color) 30%, var(--plasma-color) 70%, transparent 100%);
+    opacity: 0.5;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.3fr;
+    gap: 50px;
+    padding: 70px 5% 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-brand .footer-logo {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: block;
+    color: var(--text-color);
+}
+
+.footer-brand .footer-logo span {
+    color: var(--accent-color);
+    text-shadow: 0 0 15px var(--accent-color);
+}
+
+.footer-brand .footer-tagline {
+    font-size: 14px;
+    opacity: 0.55;
+    line-height: 1.7;
+    margin-bottom: 28px;
+    max-width: 260px;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-social-icons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.footer-social-icons a:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    box-shadow: 0 0 14px rgba(0, 243, 255, 0.2);
+    opacity: 1;
+    transform: translateY(-3px);
+    background: rgba(0, 243, 255, 0.05);
+}
+
+.footer-col h4 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    position: relative;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 28px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+    border-radius: 2px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li { margin-bottom: 11px; }
+
+.footer-col ul li a {
+    font-size: 14px;
+    opacity: 0.6;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+}
+
+.footer-col ul li a:hover {
+    opacity: 1;
+    color: var(--accent-color);
+    padding-left: 6px;
+}
+
+.footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.footer-contact-item i {
+    color: var(--accent-color);
+    font-size: 13px;
+    margin-top: 3px;
+    flex-shrink: 0;
+    width: 14px;
+    opacity: 0.85;
+}
+
+.footer-contact-item p {
+    font-size: 14px;
+    opacity: 0.6;
+    line-height: 1.55;
+}
+.footer-contact-item p a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s, opacity 0.2s;
+}
+.footer-contact-item p a:hover {
+    color: var(--accent-color);
+    opacity: 1;
+}
+
+.footer-bottom-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 0 5%;
+}
+
+.footer-bottom-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 0;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-copyright {
+    font-size: 13px;
+    opacity: 0.35;
+}
+
+.footer-legal-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-legal-links a {
+    font-size: 13px;
+    opacity: 0.35;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: opacity 0.2s ease;
+}
+
+.footer-legal-links a:hover { opacity: 0.8; }
+
+body.light-theme .footer-social-icons a { border-color: rgba(0, 0, 0, 0.1); }
+body.light-theme .site-footer { border-top-color: rgba(0, 85, 204, 0.1); }
+
+/* ==========================================================================
+   7. NASIL ÇALIŞIR VE SSS BÖLÜMLERİ TASARIMI
+   ========================================================================== */
+.info-section, .faq-section {
+    padding: 100px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.section-title h2 {
+    font-size: 36px;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+.section-title p {
+    opacity: 0.7;
+    font-size: 16px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.info-card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 40px 30px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transform: translateY(0);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                border-color 0.3s ease;
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+.card-icon-svg {
+    width: 50px;
+    height: 50px;
+    color: var(--accent-color);
+    margin-bottom: 25px;
+    transition: transform 0.4s ease, color 0.3s ease;
+}
+
+.card-icon-svg svg {
+    width: 100%;
+    height: 100%;
+}
+
+.info-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.info-card:hover::before { opacity: 1; }
+.info-card:hover .card-icon-svg { transform: scale(1.15) rotate(5deg); }
+
+.info-card.card-rotate:hover {
+    box-shadow: 0 15px 35px rgba(0, 243, 255, 0.15);
+    border-color: var(--accent-color);
+}
+.info-card.card-rotate:hover .card-icon-svg {
+    transform: scale(1.15) rotate(180deg);
+}
+
+.info-card.card-led:hover {
+    box-shadow: 0 15px 35px rgba(255, 0, 85, 0.15);
+    border-color: var(--plasma-color);
+}
+.info-card.card-led:hover .card-icon-svg { color: var(--plasma-color); }
+.info-card.card-led::before { background: linear-gradient(90deg, var(--plasma-color), transparent); }
+
+.info-card.card-cube:hover {
+    box-shadow: 0 15px 35px rgba(0, 243, 255, 0.1), 0 15px 35px rgba(255, 0, 85, 0.1);
+    border-color: #ffffff;
+}
+.info-card.card-cube:hover .card-icon-svg { color: #ffffff; }
+.info-card.card-cube::before { background: linear-gradient(90deg, var(--accent-color), var(--plasma-color)); }
+
+body.light-theme .card-icon-svg { color: var(--text-color); }
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background-color: var(--card-bg);
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 22px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+}
+.faq-question:hover { color: var(--accent-color); }
+
+.faq-toggle-icon {
+    font-size: 20px;
+    color: var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease;
+    background-color: rgba(0,0,0,0.1);
+    padding: 0 30px;
+}
+.faq-answer p {
+    font-size: 14px;
+    opacity: 0.7;
+    line-height: 1.6;
+    padding-bottom: 22px;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    padding: 22px 30px;
+}
+.faq-item.active .faq-toggle-icon {
+    transform: rotate(45deg);
+    color: var(--plasma-color);
+}
+
+/* ==========================================================================
+   8. PROJELER VE GALERİ SAYFASI TASARIMI
+   ========================================================================== */
+.projects-section {
+    padding: 140px 5% 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 80vh;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+    padding: 10px 25px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.filter-btn.active, .filter-btn:hover {
+    background-color: var(--accent-color);
+    color: #000;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.project-item {
+    background-color: var(--card-bg);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.project-media {
+    height: 220px;
+    background: linear-gradient(135deg, #151522 0%, #0c0c12 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.02);
+}
+
+.media-placeholder {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-color);
+    letter-spacing: 1px;
+}
+
+.project-info { padding: 25px; text-align: left; }
+.project-category {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--plasma-color);
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.project-info h3 { font-size: 20px; color: var(--text-color); }
+
+/* ==========================================================================
+   9. HAKKIMIZDA SAYFASI TASARIMI
+   ========================================================================== */
+.about-section {
+    padding: 140px 5% 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 80vh;
+}
+
+.about-content-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    margin-top: 40px;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .about-content-grid { grid-template-columns: 1fr; gap: 30px; }
+}
+
+.about-text { text-align: left; }
+.about-text h3 {
+    font-size: 22px;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    margin-top: 30px;
+}
+.about-text h3:first-child { margin-top: 0; }
+.about-text p { font-size: 15px; opacity: 0.8; line-height: 1.7; }
+
+.corporate-info-list { list-style: none; margin-top: 15px; }
+.corporate-info-list li { font-size: 15px; margin-bottom: 12px; opacity: 0.8; }
+.corporate-info-list li strong {
+    color: var(--plasma-color);
+    font-weight: 600;
+    display: inline-block;
+    width: 80px;
+}
+
+.about-map-container {
+    height: 350px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+body.light-theme .about-map-container { border-color: rgba(0, 0, 0, 0.1); }
+
+/* ==========================================================================
+   10. TEKLİF AL / FORM SAYFASI TASARIMI
+   ========================================================================== */
+.contact-section {
+    padding: 140px 5% 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 80vh;
+}
+
+.form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.form-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 576px) {
+    .form-grid-2 { grid-template-columns: 1fr; gap: 0; }
+}
+
+.form-group { margin-bottom: 25px; text-align: left; }
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+}
+.label-optional {
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.5;
+    margin-left: 6px;
+    letter-spacing: 0;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+
+body.light-theme .form-group input,
+body.light-theme .form-group select,
+body.light-theme .form-group textarea {
+    background-color: #fff;
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(45deg, var(--accent-color), var(--plasma-color));
+    color: #fff;
+    border: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 0, 85, 0.2);
+}
+
+.btn-submit:hover { box-shadow: 0 0 25px var(--accent-color); }
+
+.success-message { text-align: center; padding: 40px 20px; }
+.success-message h3 {
+    color: var(--accent-color);
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+.success-message p { opacity: 0.8; font-size: 16px; }
+
+/* İletişim Sayfası Harita + Meta Bilgi Bölümü */
+.contact-map-section {
+    padding: 0 5% 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.contact-meta-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 40px;
+    justify-content: center;
+    margin-bottom: 28px;
+}
+.contact-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    opacity: 0.85;
+}
+.contact-meta-item i {
+    color: var(--accent-color);
+    font-size: 16px;
+    min-width: 18px;
+    text-align: center;
+}
+.contact-meta-item a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.contact-meta-item a:hover { color: var(--accent-color); }
+.contact-map-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 243, 255, 0.15);
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.06);
+    height: 350px;
+}
+.contact-map-wrapper iframe { display: block; width: 100%; height: 100%; }
+@media (max-width: 768px) {
+    .contact-map-wrapper { height: 260px; }
+    .contact-meta-bar { flex-direction: column; align-items: flex-start; gap: 14px; }
+}
+
+/* ==========================================================================
+   11. 3 ADIMDA SÜREÇ (PROCESS) BÖLÜMÜ TASARIMI
+   ========================================================================== */
+.process-section {
+    padding: 60px 5% 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.process-timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    position: relative;
+    margin-top: 50px;
+}
+
+.process-step {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    padding: 30px;
+    border-radius: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.step-number-box {
+    width: 60px;
+    height: 60px;
+    background-color: var(--card-bg);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.step-num {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.step-content h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.step-content p { font-size: 14px; opacity: 0.7; line-height: 1.6; }
+
+.process-step:hover {
+    background: rgba(255, 255, 255, 0.02);
+    transform: translateY(-5px);
+}
+.process-step:hover .step-number-box {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 20px var(--accent-color);
+}
+.process-step:hover .step-num { color: var(--accent-color); }
+.process-step:hover .step-content h3 { color: var(--accent-color); }
+
+/* ==========================================================================
+   12. SCROLL FADE-IN (SOFT BELİRME) ANİMASYONLARI
+   ========================================================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: opacity, transform;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.15s; }
+.delay-2 { transition-delay: 0.3s; }
+.delay-3 { transition-delay: 0.45s; }
+
+/* ==========================================================================
+   13. NEON SİBER SİS / NEBULA EFEKTİ (ARKA PLAN DERİNLİĞİ)
+   ========================================================================== */
+.cyber-fog {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px); 
+    opacity: 0.25; 
+    mix-blend-mode: screen;
+    pointer-events: none;
+    will-change: transform;
+}
+
+.fog-cyan {
+    top: -10%;
+    left: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+    animation: floatFog1 20s ease-in-out infinite alternate;
+}
+
+.fog-magenta {
+    bottom: -10%;
+    right: -10%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, var(--plasma-color) 0%, transparent 70%);
+    animation: floatFog2 25s ease-in-out infinite alternate;
+}
+
+@keyframes floatFog1 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(100px, 80px) scale(1.2); }
+    100% { transform: translate(-50px, 150px) scale(0.9); }
+}
+
+@keyframes floatFog2 {
+    0% { transform: translate(0, 0) scale(1.1); }
+    50% { transform: translate(-120px, -100px) scale(0.8); }
+    100% { transform: translate(80px, 50px) scale(1.3); }
+}
+
+body.light-theme .hero-section,
+body.light-theme .info-section,
+body.light-theme .process-section {
+    background-color: transparent !important;
+}
+
+/* ==========================================================================
+   ETKİNLİK PORTFÖYÜ TASARIMI
+   ========================================================================== */
+.events-showcase {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.event-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.event-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.event-overlay { position: absolute; top: 15px; left: 15px; }
+
+.event-tag {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.event-info { padding: 25px; text-align: left; }
+.event-info h3 { font-size: 20px; margin-bottom: 12px; color: var(--text-color); }
+.event-info p { font-size: 14px; opacity: 0.7; line-height: 1.6; }
+
+.event-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0, 243, 255, 0.1);
+}
+.event-card:hover .event-image img { transform: scale(1.1); }
+
+.events-action { margin-top: 50px; }
+
+.btn-outline {
+    display: inline-block;
+    padding: 12px 35px;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px var(--accent-color);
+}
+
+/* 🌙 Aydınlık Tema Kapsül Özelleştirmeleri */
+body.light-theme .nav-wrapper {
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+body.light-theme .nav-wrapper ul li a { color: #222; }
+body.light-theme .lang-switch { background: rgba(0, 0, 0, 0.05); }
+
+/* ==========================================================================
+   AKTİF SAYFA LİNKİNİN SİBER MAVİ PARLAMASI (ACTIVE STATE)
+   ========================================================================== */
+.main-nav a.active {
+    color: var(--accent-color) !important; /* Aktif sayfayı siber mavi yap */
+    font-weight: 700; /* Bir tık daha kalın dursun */
+    opacity: 1 !important; /* Solukluğu tamamen kaldır */
+    /* Yazının arkasına tatlı bir siber ışık/neon efekti */
+    text-shadow: 0 0 10px var(--accent-color), 
+                 0 0 20px rgba(0, 243, 255, 0.4);
+    position: relative;
+}
+
+/* Aktif linkin altına fütüristik küçük neon çizgi */
+.main-nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 15%;
+    width: 70%;
+    height: 2px;
+    background: var(--accent-color);
+    border-radius: 2px;
+    box-shadow: 0 0 8px var(--accent-color);
+}
+
+/* ==========================================================================
+   2. TEKLİF AL LİNKİNİN BOLD VE RENKLİ YAPISI (SADECE YAZI)
+   ========================================================================== */
+.main-nav a.btn-cta {
+    background: transparent !important; /* Arka plan dolgusunu tamamen sıfırladık */
+    color: var(--plasma-color) !important; /* Yazı rengi doğrudan plazma pembesi */
+    font-weight: 800; /* Kapkalın (Bold) yaptık */
+    letter-spacing: 0.5px;
+    opacity: 1 !important; /* Kesinlikle sönük durmasın */
+    transition: all 0.2s ease-in-out;
+}
+
+/* Teklif Al hover olduğunda yazının neon parlaması */
+.main-nav a.btn-cta:hover {
+    text-shadow: 0 0 12px var(--plasma-color), 
+                 0 0 25px var(--plasma-color);
+    transform: scale(1.05); /* Hafif büyüme */
+}
+
+/* ==========================================================================
+   3. AYDINLIK TEMA (LIGHT MODE) UYARLAMALARI
+   ========================================================================== */
+body.light-theme .main-nav a.active {
+    color: var(--accent-color) !important;
+    text-shadow: 0 0 8px rgba(0, 85, 204, 0.3);
+}
+body.light-theme .main-nav a.active::after {
+    box-shadow: none; /* Açık temada alt çizgi parlamasını kapat, temiz dursun */
+}
+body.light-theme .main-nav a.btn-cta {
+    color: var(--plasma-color) !important;
+}
+
+/* btn-cta hem active hem de btn-cta sınıfı taşıdığında (contact sayfası) alt çizgi plasma rengi olsun */
+.main-nav a.btn-cta.active::after {
+    background: var(--plasma-color);
+    box-shadow: 0 0 8px var(--plasma-color);
+}
+
+/* ==========================================================================
+   MOBİL / RESPONSIVE TASARIM (MAX-WIDTH: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Header sabit ve ince kalır — ekranın 1/3'ünü kaplamasın */
+    .site-header {
+        padding: 0 5%;
+        height: 62px;
+        display: flex;
+        align-items: center;
+    }
+
+    .header-inner {
+        flex-wrap: nowrap;
+        height: 62px;
+        gap: 10px;
+    }
+
+    /* Hamburger butonu görünür olur */
+    .mobile-menu-toggle { display: flex; }
+
+    /* Desktop'ta nav merkezdeydi; mobildes fixed dropdown'a dönüşür */
+    .main-nav {
+        order: unset;
+        width: auto;
+        position: static;
+    }
+
+    /* Nav kapsülü sayfanın üstünden aşağı süzülen dropdown olur */
+    .nav-wrapper {
+        position: fixed;
+        top: 62px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        border-radius: 0 0 20px 20px;
+        border-top: none;
+        border: 1px solid rgba(0, 243, 255, 0.18);
+        padding: 16px 5% 20px;
+        background: rgba(5, 5, 15, 0.97);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 243, 255, 0.04);
+        transform: translateY(-110%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.35s ease,
+                    visibility 0.4s;
+        z-index: 999;
+    }
+
+    .nav-wrapper.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-wrapper ul {
+        flex-direction: column;
+        gap: 2px;
+        align-items: stretch;
+    }
+
+    .nav-wrapper ul li a {
+        display: block;
+        text-align: center;
+        padding: 12px 16px;
+    }
+
+    body.light-theme .nav-wrapper {
+        background: rgba(240, 244, 252, 0.98);
+        border-color: rgba(0, 85, 204, 0.15);
+    }
+
+    /* Hero başlığı mobilde küçülür */
+    .hero-content h1 { font-size: 32px; }
+
+    /* Hologram pervane mobilde ölçeklenir - boyuta dokunulmaz, scale kullanılır */
+    .hologram-fan {
+        transform: scale(0.4) !important;
+        animation: spinFan 2.5s linear infinite !important;
+    }
+
+    /* Tüm grid yapıları tek kolona düşer */
+    .info-grid,
+    .events-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-timeline {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    /* Footer mobilde dikey ve ortalı */
+    .footer-main {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 50px 5% 35px;
+    }
+
+    .footer-brand .footer-tagline { max-width: 100%; }
+
+    .footer-bottom-inner {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .hero-buttons { flex-direction: column; align-items: center; }
+
+    /* Sayfa bölümleri mobil padding */
+    .info-section, .faq-section { padding: 60px 5%; }
+    .events-showcase { padding: 60px 5%; }
+    .process-section { padding: 40px 5% 60px; }
+    .projects-section,
+    .about-section,
+    .contact-section { padding: 100px 5% 60px; }
+
+    /* Form grid tek kolon */
+    .form-grid-2 { grid-template-columns: 1fr; gap: 0; }
+
+    /* About içerik grid tek kolon */
+    .about-content-grid { grid-template-columns: 1fr; gap: 30px; }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 { font-size: 26px; }
+    .hero-content p { font-size: 15px; }
+
+    /* Daha küçük ekranlarda pervane daha da küçülür */
+    .hologram-fan {
+        transform: scale(0.3) !important;
+    }
+
+    .logo { font-size: 20px; }
+
+    .form-container { padding: 25px 20px; }
+}

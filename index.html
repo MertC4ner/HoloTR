@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hologram Gösteri ve Kiralama Hizmetleri</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body class="dark-theme">
+
+    <!-- Hologram pervane + arka plan sisin bulunduğu kapsayıcı (scroll ile solar) -->
+    <div class="hologram-bg-container">
+        <div class="cyber-fog fog-cyan"></div>
+        <div class="cyber-fog fog-magenta"></div>
+
+        <div class="hologram-fan">
+            <div class="fan-center"></div>
+            <div class="fan-blade blade-1"><div class="plasma-trail"></div></div>
+            <div class="fan-blade blade-2"><div class="plasma-trail"></div></div>
+            <div class="fan-blade blade-3"><div class="plasma-trail"></div></div>
+        </div>
+    </div>
+
+    <!-- Duman makineleri: kapsayıcıdan bağımsız fixed olarak çalışır, scroll opacity'sinden etkilenmez -->
+    <div class="fog-machine machine-left"></div>
+    <div class="fog-machine machine-right"></div>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="logo">
+                <a href="index.html">HOLO<span>TR</span></a>
+            </div>
+
+            <nav class="main-nav">
+                <div class="nav-wrapper">
+                    <ul>
+                        <li><a href="index.html" class="active" data-i18n="nav-home">Ana Sayfa</a></li>
+                        <li><a href="projects.html" data-i18n="nav-projects">Projelerimiz</a></li>
+                        <li><a href="about.html" data-i18n="nav-about">Hakkımızda</a></li>
+                        <li><a href="contact.html" class="btn-cta" data-i18n="nav-contact">Teklif Al</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="header-actions">
+                <div class="lang-switch">
+                    <button id="btn-tr" class="active">TR</button>
+                    <button id="btn-en">EN</button>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menüyü Aç/Kapat" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 data-i18n="hero-title">Geleceğin Görsel Deneyimiyle Tanışın</h1>
+            <p data-i18n="hero-subtitle">3 Kollu LED Hologram teknolojisiyle etkinliklerinize fütüristik bir dokunuş yapın.</p>
+            <div class="hero-buttons">
+                <a href="contact.html" class="btn-main" data-i18n="btn-get-proposal">Teklif Al</a>
+                <a href="projects.html" class="btn-secondary" data-i18n="btn-view-projects">Çalışmalarımızı İzle <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-section">
+        <div class="section-title reveal">
+            <h2 data-i18n="sec-how-title">Nasıl Çalışır?</h2>
+            <p data-i18n="sec-how-subtitle">Yüksek hızda dönen LED teknolojisiyle havada asılı duran büyüleyici görüntüler.</p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card card-rotate reveal delay-1">
+                <div class="card-icon-svg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-5.25A1.125 1.125 0 018.25 20.625V17.25m7.5 0H18a2.25 2.25 0 002.25-2.25V5.25A2.25 2.25 0 0018 3H6a2.25 2.25 0 00-2.25 2.25v9.75A2.25 2.25 0 006 15.75h2.25m7.5 0v-3.375c0-.621-.504-1.125-1.125-1.125h-5.25a1.125 1.125 0 00-1.125 1.125V15.75M12 9v.008H12V9z" />
+                    </svg>
+                </div>
+                <h3 data-i18n="card-1-title">Yüksek Hızlı Dönüş</h3>
+                <p data-i18n="card-1-desc">3 kollu özel pervanemiz insan gözünün algılayamayacağı bir hızda dönerek şeffaf bir zemin yaratır.</p>
+            </div>
+
+            <div class="info-card card-led reveal delay-2">
+                <div class="card-icon-svg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5-5.625L19.5 5.25m-14 1.125L4.5 5.25m14 13.5l1.125-1.125m-14 0L3 18.75M12 3v1.5m0 15V21m0-12v.008H12V9zm0 3v.008H12V12zm0 3v.008H12V15z" />
+                    </svg>
+                </div>
+                <h3 data-i18n="card-2-title">Akıllı LED Dizilimi</h3>
+                <p data-i18n="card-2-desc">Kolların üzerindeki ultra parlak mikro LED'ler, dönüş yönüne göre mikro saniyede renk değiştirir.</p>
+            </div>
+
+            <div class="info-card card-cube reveal delay-3">
+                <div class="card-icon-svg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                    </svg>
+                </div>
+                <h3 data-i18n="card-3-title">3D Hologram Etkisi</h3>
+                <p data-i18n="card-3-desc">Göz, pervaneyi görmez; sadece havada asılı duran, parıldayan fütüristik 3 boyutlu görseli algılar.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="section-title reveal">
+            <h2 data-i18n="proc-title">3 Adımda Büyüyü Başlatın</h2>
+            <p data-i18n="proc-subtitle">Fikir aşamasından sahnedeki canlı gösteriye kadar tüm süreci biz yönetiyoruz.</p>
+        </div>
+
+        <div class="process-timeline">
+            <div class="process-step reveal delay-1">
+                <div class="step-number-box">
+                    <span class="step-num">1</span>
+                </div>
+                <div class="step-content">
+                    <h3 data-i18n="proc-step1-title">Brief & Hayal Et</h3>
+                    <p data-i18n="proc-step1-desc">Etkinlik konseptinizi ve isteklerinizi bize iletin. Ekibimizle birlikte kreatif kurguyu netleştirelim.</p>
+                </div>
+            </div>
+
+            <div class="process-step reveal delay-2">
+                <div class="step-number-box">
+                    <span class="step-num">2</span>
+                </div>
+                <div class="step-content">
+                    <h3 data-i18n="proc-step2-title">Prodüksiyon & Modelleme</h3>
+                    <p data-i18n="proc-step2-desc">Tasarımcılarımız, cihaz özelliklerine en uygun fütüristik 3D videoyu hazırlar.</p>
+                </div>
+            </div>
+
+            <div class="process-step reveal delay-3">
+                <div class="step-number-box">
+                    <span class="step-num">3</span>
+                </div>
+                <div class="step-content">
+                    <h3 data-i18n="proc-step3-title">Kurulum & Canlı Gösteri</h3>
+                    <p data-i18n="proc-step3-desc">Teknik ekibimiz sahneye gelerek donanımı kurar ve gösteri anında kusursuz yayını başlatır.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="events-showcase reveal">
+        <div class="section-title">
+            <h2 data-i18n="events-title">Sahne Alınan Etkinlikler</h2>
+            <p data-i18n="events-subtitle">Hologram teknolojimizin büyülediği seçkin sahnelerden ve lansmanlardan kareler.</p>
+        </div>
+
+        <div class="events-grid">
+            <div class="event-card reveal delay-1">
+                <div class="event-image">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=600" alt="Lansman">
+                    <div class="event-overlay">
+                        <span class="event-tag" data-i18n="event-1-tag">Lansman</span>
+                    </div>
+                </div>
+                <div class="event-info">
+                    <h3 data-i18n="event-1-title">Global Teknoloji Zirvesi</h3>
+                    <p data-i18n="event-1-desc">Yeni nesil donanım tanıtımı için hazırlanan devasa 3D hologram şovu.</p>
+                </div>
+            </div>
+
+            <div class="event-card reveal delay-2">
+                <div class="event-image">
+                    <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80&w=600" alt="Konser">
+                    <div class="event-overlay">
+                        <span class="event-tag" data-i18n="event-2-tag">Sahne Şovu</span>
+                    </div>
+                </div>
+                <div class="event-info">
+                    <h3 data-i18n="event-2-title">Neon Future Festival</h3>
+                    <p data-i18n="event-2-desc">DJ performansıyla senkronize çalışan interaktif ışık ve hologram gösterisi.</p>
+                </div>
+            </div>
+
+            <div class="event-card reveal delay-3">
+                <div class="event-image">
+                    <img src="https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?auto=format&fit=crop&q=80&w=600" alt="Fuar">
+                    <div class="event-overlay">
+                        <span class="event-tag" data-i18n="event-3-tag">Kurumsal Expo</span>
+                    </div>
+                </div>
+                <div class="event-info">
+                    <h3 data-i18n="event-3-title">Auto-Motion 2024</h3>
+                    <p data-i18n="event-3-desc">Otomotiv devinin standında havada asılı duran 3D araç modelleri sunumu.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="events-action reveal">
+            <a href="projects.html" class="btn-outline" data-i18n="btn-view-all">Daha Fazlasını Gör</a>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="section-title reveal">
+            <h2 data-i18n="sec-faq-title">Sıkça Sorulan Sorular</h2>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span data-i18n="faq-q1">Gündüz veya ışıklı ortamlarda net görünür mi?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p data-i18n="faq-a1">Evet, kullandığımız cihazlar yüksek lümenli endüstriyel LED'lere sahip olduğu için fuar ve lansman gibi yoğun ışıklı iç mekanlarda bile son derece parlak ve net bir görünüm sunar.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span data-i18n="faq-q2">Kendi şirket logomuzu hologram yapabilir miyiz?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p data-i18n="faq-a2">Kesinlikle. 3D tasarım ekibimiz kurumsal logonuzu veya ürünlerinizin 3 boyutlu modelini sisteme uygun formatta hazırlar ve gösteri günü pervanelere yükler.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span data-i18n="faq-q3">Güvenlik önlemleri nasıl sağlanıyor?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p data-i18n="faq-a3">Etkinlik alanlarında pervanelerin etrafına şeffaf pleksi koruma fanusları yerleştiriyoruz. Böylece ziyaretçilerin pervanelere dokunması engellenerek maksimum güvenlik sağlanır.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="theme-toggle-container">
+        <button id="theme-toggle-btn" title="Temayı Değiştir">
+            <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-glow-bar"></div>
+        <div class="footer-main">
+            <div class="footer-brand">
+                <span class="footer-logo">HOLO<span>TR</span></span>
+                <p class="footer-tagline" data-i18n="footer-slogan">Boyutları aşan fütüristik görsel deneyimler. Etkinliğinizi geleceğin teknolojisiyle buluşturuyor, sahnenizde unutulmaz 3D illüzyonlar yaratıyoruz.</p>
+                <div class="footer-social-icons">
+                    <a href="https://www.instagram.com/holo.tr/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer-nav-title">Hızlı Bağlantılar</h4>
+                <ul>
+                    <li><a href="index.html" data-i18n="nav-home">Ana Sayfa</a></li>
+                    <li><a href="projects.html" data-i18n="nav-projects">Projelerimiz</a></li>
+                    <li><a href="about.html" data-i18n="nav-about">Hakkımızda</a></li>
+                    <li><a href="contact.html" data-i18n="nav-contact">Teklif Al</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer-services-title">Hizmetlerimiz</h4>
+                <ul>
+                    <li><a href="contact.html" data-i18n="footer-svc-1">Fuar Stand Kiralama</a></li>
+                    <li><a href="contact.html" data-i18n="footer-svc-2">Ürün Lansmanı</a></li>
+                    <li><a href="contact.html" data-i18n="footer-svc-3">Konser & Festival Şovları</a></li>
+                    <li><a href="contact.html" data-i18n="footer-svc-4">Kurumsal Etkinlikler</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer-contact-title">İletişim</h4>
+                <div class="footer-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p><a href="mailto:bilgi@holotr.com">bilgi@holotr.com</a></p>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p><a href="tel:+905344113051">+90 534 411 30 51</a></p>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p data-i18n="footer-address">Yeniköy Merkez, Vatan Cd. No:73E İç Kapı No:Z4, 41275 Başiskele/Kocaeli</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            <div class="footer-bottom-inner">
+                <p class="footer-copyright">&copy; 2026 HoloTR. <span data-i18n="footer-rights">Tüm Hakları Saklıdır.</span></p>
+                <div class="footer-legal-links">
+                    <a href="#" data-i18n="footer-privacy">Gizlilik Politikası</a>
+                    <a href="#" data-i18n="footer-terms">Kullanım Koşulları</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
